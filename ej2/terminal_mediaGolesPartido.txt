@@ -1,0 +1,8 @@
+cd /home/agorostizal/Desktop/practica1/ej2
+
+chmod u+x mapper_mediaGolesPartido.py
+chmod u+x combiner_mediaGolesPartido.py
+chmod u+x reducer_mediaGolesPartido.py
+
+hadoop jar $HADOOP_HOME/share/hadoop/tools/lib/hadoop-streaming-3.4.0.jar -files ./mapper_mediaGolesPartido.py,./combiner_mediaGolesPartido.py,./reducer_mediaGolesPartido.py -mapper ./mapper_mediaGolesPartido.py -reducer ./reducer_mediaGolesPartido.py -combiner ./combiner_mediaGolesPartido.py -input resultados_futbol.csv -output ./salidaMediaGolesPartido
+
