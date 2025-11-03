@@ -1,0 +1,10 @@
+cd /home/agorostizal/Desktop/practica1/ej1
+
+touch mapper_puntosEquipo.py
+touch reducer_puntosEquipo.py
+
+chmod u+x mapper_puntosEquipo.py
+chmod u+x reducer_puntosEquipo.py
+
+hadoop jar $HADOOP_HOME/share/hadoop/tools/lib/hadoop-streaming-3.4.0.jar -files ./mapper_puntosEquipo.py,./reducer_puntosEquipo.py -mapper ./mapper_puntosEquipo.py -reducer ./reducer_puntosEquipo.py -combiner ./reducer_puntosEquipo.py -input resultados_futbol.csv -output ./salidaPuntosEquipo
+
